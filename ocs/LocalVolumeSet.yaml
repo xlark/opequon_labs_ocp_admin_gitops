@@ -1,0 +1,26 @@
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeSet
+metadata:
+  name: ocs-disks
+spec:
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: kubernetes.io/os
+            operator: In
+            values:
+              - linux
+  storageClassName: ocs-disks
+  volumeMode: Block
+  maxDeviceCount: 10
+  deviceInclusionSpec:
+    deviceTypes: 
+      - disk
+    deviceMechanicalProperty:
+      - Rotational
+    minSize: 1G
+    maxSize: 3000G
+    models:
+      - ST1000DM010-2EP1
+    vendors:
+      - ATA
