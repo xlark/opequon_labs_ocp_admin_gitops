@@ -6,10 +6,10 @@ spec:
   nodeSelector:
     nodeSelectorTerms:
       - matchExpressions:
-          - key: kubernetes.io/os
+          - key: type
             operator: In
             values:
-              - linux
+              - supermicro
   storageClassName: ocs-disks
   volumeMode: Block
   maxDeviceCount: 10
