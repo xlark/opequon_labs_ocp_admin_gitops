@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   nodeSelector: 
-    type: "hpg10"
+    opequon.net/hw-type: "hpeg10"
   desiredState:
     interfaces:
       - name: eno6.300 

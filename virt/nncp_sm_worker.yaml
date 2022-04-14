@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   nodeSelector: 
-    type: "supermicro"
+    opequon.net/hw-type: "sm"
   desiredState:
     interfaces:
       - name: eno2.300 
