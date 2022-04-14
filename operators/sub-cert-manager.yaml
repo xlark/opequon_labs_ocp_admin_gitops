@@ -1,2 +1,13 @@
-NAME           PACKAGE        SOURCE                CHANNEL
-cert-manager   cert-manager   community-operators   stable
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: cert-manager
+  namespace: openshift-operators
+  annotations:
+    argocd.argoproj.io/sync-wave: "-4"
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: cert-manager
+  source: community-operators
+  sourceNamespace: openshift-marketplace
