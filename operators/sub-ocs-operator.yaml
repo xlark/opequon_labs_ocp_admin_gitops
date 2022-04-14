@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-4"
 spec:
-  channel: stable-4.8
+  channel: stable-4.10
   name: ocs-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
