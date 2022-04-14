@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-4"
 spec:
-  channel: "4.8"
+  channel: "4.10"
   name: local-storage-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
