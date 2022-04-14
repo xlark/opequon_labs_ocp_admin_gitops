@@ -3,3 +3,6 @@ kind: ServiceAccount
 metadata:
   name: patch-superuser
   namespace: patch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-3"
+

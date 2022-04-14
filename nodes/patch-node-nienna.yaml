@@ -3,6 +3,8 @@ kind: Patch
 metadata:
   name: node-label-nienna
   namespace: patch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
 spec:
   serviceAccountRef:
     name: patch-superuser
