@@ -6,17 +6,17 @@ spec:
   nodeSelector:
     nodeSelectorTerms:
       - matchExpressions:
-          - key: type
+          - key: opequon.net/hw-type
             operator: In
             values:
-              - supermicro
+              - sm
   storageClassName: ocs-disks
   volumeMode: Block
   maxDeviceCount: 10
   deviceInclusionSpec:
     deviceTypes: 
       - disk
-    deviceMechanicalProperty:
+    deviceMechanicalProperties:
       - Rotational
     minSize: 1G
     maxSize: 3000G
