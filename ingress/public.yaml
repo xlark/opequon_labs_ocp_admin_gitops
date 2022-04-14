@@ -1,0 +1,25 @@
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: public
+  namespace: openshift-ingress-operator
+spec:
+  domain: public.opequon.net
+  endpointPublishingStrategy:
+    type: NodePortService
+    nodePort: 
+      protocol: 'TCP'
+  httpEmptyRequestsPolicy: Respond
+  httpErrorCodePages:
+    name: ""
+  routeSelector:
+    matchExpressions:
+    - key: opequon.net/public-route
+      operator: Exists
+  nodePlacement:
+    nodeSelector:
+      matchLabels:
+        type: sm
+  replicas: 3
+  tuningOptions: {}
+  unsupportedConfigOverrides: null

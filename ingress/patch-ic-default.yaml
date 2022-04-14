@@ -1,0 +1,29 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: ic-default
+  namespace: patch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    node-label-machine-type:
+      targetObjectRef:
+        apiVersion: operator.openshift.io/v1
+        kind: IngressController
+        name: default
+        namespace: openshift-ingress-operator
+      patchTemplate: |
+        spec:
+          nodePlacement:
+            nodeSelector:
+              matchLabels:
+                opequon.net/hw-type: hpeg10
+          routeSelector:
+            matchExpressions:
+            - key: opequon.net/public-route
+              operator: DoesNotExist
+          replicas: 3
+      patchType: application/merge-patch+json
