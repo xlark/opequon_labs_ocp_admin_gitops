@@ -1,0 +1,19 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: node-label-nienna
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    node-label-machine-type:
+      targetObjectRef:
+        apiVersion: v1
+        kind: Node
+        name: nienna.private.opequon.net
+      patchTemplate: |
+        metadata:
+          labels:
+            opequon.net/hw-type: sm
+      patchType: application/merge-patch+json
