@@ -19,7 +19,7 @@ spec:
   nodePlacement:
     nodeSelector:
       matchLabels:
-        type: sm
+        opequon.net/hw-type: sm
   replicas: 3
   tuningOptions: {}
   unsupportedConfigOverrides: null
