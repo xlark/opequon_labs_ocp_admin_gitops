@@ -5,6 +5,7 @@ metadata:
   namespace: patch-operator
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   serviceAccountRef:
     name: patch-superuser

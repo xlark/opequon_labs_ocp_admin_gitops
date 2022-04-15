@@ -4,6 +4,7 @@ metadata:
   name: worker-node-network-policy
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   nodeSelector: 
     opequon.net/hw-type: "sm"

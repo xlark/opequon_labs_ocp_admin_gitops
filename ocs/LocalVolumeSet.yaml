@@ -2,6 +2,8 @@ apiVersion: local.storage.openshift.io/v1alpha1
 kind: LocalVolumeSet
 metadata:
   name: ocs-disks
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   nodeSelector:
     nodeSelectorTerms:
