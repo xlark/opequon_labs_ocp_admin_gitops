@@ -22,7 +22,7 @@ spec:
     deviceMechanicalProperties:
       - Rotational
     minSize: 1G
-    maxSize: 3000G
+    maxSize: 3T
     models:
       - ST1000DM010-2EP1
     vendors:
