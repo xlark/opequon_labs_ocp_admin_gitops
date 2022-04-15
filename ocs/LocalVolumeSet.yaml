@@ -4,6 +4,7 @@ metadata:
   name: ocs-disks
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  namespace: openshift-local-storage
 spec:
   nodeSelector:
     nodeSelectorTerms:
