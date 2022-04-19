@@ -1,0 +1,24 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: registry-config
+  namespace: patch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    node-label-machine-type:
+      targetObjectRef:
+        apiVersion: imageregistry.operator.openshift.io/v1
+        kind: Config
+        name: cluster
+      patchTemplate: |
+        spec:
+          managementState: Unmanaged
+          storage:
+            pvc:
+              claim: image-registry-storage
+      patchType: application/merge-patch+json
