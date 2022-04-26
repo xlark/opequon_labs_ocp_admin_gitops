@@ -1,0 +1,41 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: patch-oauth-cluster
+  namespace: patch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    oauth-cluster:
+      targetObjectRef:
+        apiVersion: config.openshift.io/v1
+        kind: OAuth
+        name: cluster
+      patchTemplate: |
+        spec:
+          identityProviders:
+          - ldap:
+              attributes:
+                email:
+                - mail
+                id:
+                - dn
+                name:
+                - cn
+                preferredUsername:
+                - uid
+              bindDN: uid=openshift,cn=sysaccounts,cn=etc,dc=private,dc=opequon,dc=net
+              bindPassword:
+                name: ldap-secret
+              ca:
+                name: opequon-custom-ca-oauth
+              insecure: false
+              url: ldaps://ipa.private.opequon.net/cn=users,cn=accounts,dc=private,dc=opequon,dc=net?uid
+            mappingMethod: claim
+            name: ldapidp
+            type: LDAP
+      patchType: application/merge-patch+json

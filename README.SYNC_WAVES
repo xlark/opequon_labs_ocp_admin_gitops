@@ -1,7 +1,7 @@
 -5 - Namespaces, NFS PVs
 -4 - Operators
--3 - Patch Pre-reqs
--2 - Nodes Patches, Registry Patches
--1 - LocalVolumes, Ingress, GroupSync, RBAC
+-3 - Patch Pre-reqs, Secrets Pre-Reqs
+-2 - Nodes Patches, Registry Patches, ExternalSecrets, Cluster Proxy
+-1 - LocalVolumes, Ingress, GroupSync, RBAC, OAuth, Routes, API Certificates
 0  - Application of Applications
 
