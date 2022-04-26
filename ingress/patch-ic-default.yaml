@@ -18,6 +18,8 @@ spec:
         namespace: openshift-ingress-operator
       patchTemplate: |
         spec:
+          defaultCertificate:
+            name: opequon-custom-ingress-certificate
           nodePlacement:
             nodeSelector:
               matchLabels:
