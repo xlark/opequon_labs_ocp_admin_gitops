@@ -1,0 +1,22 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: proxy-cluster
+  namespace: patch-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  serviceAccountRef:
+    name: patch-superuser
+  patches:
+    cluster-wide-proxy:
+      targetObjectRef:
+        apiVersion: config.openshift.io/v1
+        kind: Proxy
+        name: cluster
+      patchTemplate: |
+        spec:
+          trustedCA:
+            name: opequon-custom-ca
+      patchType: application/merge-patch+json
