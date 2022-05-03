@@ -17,7 +17,7 @@ spec:
         name: cluster
       patchTemplate: |
         spec:
-          managementState: Unmanaged
+          managementState: Managed
           storage:
             pvc:
               claim: image-registry-storage
